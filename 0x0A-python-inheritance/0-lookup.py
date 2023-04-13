@@ -6,11 +6,11 @@
 """
 
     def lookup(obj):
-        """Function that returns the list of available attributes
+        """ Function that returns the list of available attributes
             and methods of an object
 
         Args:
-            obj:instance of the class
+            obj: instance of the class
 
 
         Returns:
