@@ -3,11 +3,12 @@
 """ Function that adds a new attribute to an object
 """
 
+
 def add_attribute(obj, name, value):
     """ Function that adds a new attribute to an object
 
     Args:
-        obj:object
+        obj: object
         name: attribute name
         value: attribute value
 
@@ -17,5 +18,5 @@ def add_attribute(obj, name, value):
     """
 
     if not hasattr(obj, "__dict__"):
-        raise TypeError("cant't add new attribute")
+        raise TypeError("can't add new attribute")
     setattr(obj, name, value)
