@@ -1,12 +1,8 @@
 #!/usr/bin/python3
 
-"""
-This module is made up of a function that adds two numbers
+"""Define class Rectangle."""
 
-"""
 
 class Rectangle:
-   
-    """ Empty class """
-
+    """Represent class Rectangle."""
     pass
