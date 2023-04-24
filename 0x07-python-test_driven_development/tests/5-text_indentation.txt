@@ -1,128 +1,96 @@
-The ``5-text_indentation`` module
+# 4-print_square.txt
+# Marta A
+
+============================
+How to Use 4-print_square.py
 ============================
 
-Using ``text_indentation``
----------------------
+This module defines a square-printing function ``print_square(size)``.
 
-Importing function from the module:
+Usage
+=====
 
-    >>> text_indentation = __import__('5-text_indentation').text_indentation
+Squares are printed using the ``#`` character. The parameter ``size``
+represents the height and width of the square.
 
-Printing a large message
+::
 
-    >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres""")
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    <BLANKLINE>
-    Quonam modo?
-    <BLANKLINE>
-    Utrum igitur tibi litteram videor an totas paginas commovere?
-    <BLANKLINE>
-    Non autem hoc:
-    <BLANKLINE>
-    igitur ne illud quidem.
-    <BLANKLINE>
-    Fortasse id optimum, sed ubi illud:
-    <BLANKLINE>
-    Plus semper voluptatis?
-    <BLANKLINE>
-    Teneo, inquit, finem illi videri nihil dolere.
-    <BLANKLINE>
-    Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
-    <BLANKLINE>
-    Si id dicis, vicimus.
-    <BLANKLINE>
-    Inde sermone vario sex illa a Dipylo stadia confecimus.
-    <BLANKLINE>
-    Sin aliud quid voles, postea.
-    <BLANKLINE>
-    Quae animi affectio suum cuique tribuens atque hanc, quam dico.
-    <BLANKLINE>
-    Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
+    >>> print_square = __import__('4-print_square').print_square
+    >>> print_square(1)
+    #
 
-Printing a word with spaces around
+::
 
-    >>> text_indentation("    Holberton    ")
-    Holberton
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
 
-Printing a word with a special character at the end
+::
 
-    >>> text_indentation("    Hello    .")
-    Hello.
-    <BLANKLINE>
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
 
-Printing all special characters
+If ``size`` is zero, the function prints nothing.
 
-    >>> text_indentation(".?:")
-    .
-    <BLANKLINE>
-    ?
-    <BLANKLINE>
-    :
-    <BLANKLINE>
+::
 
-Passing Node as a text
+    >>> print_square(0)
 
-    >>> text_indentation(None)
+Invalid Sizes
+=============
+
+The parameter ``size`` must be an integer. Otherwise, a TypeError is raised.
+
+::
+
+    >>> print_square("not an int")
     Traceback (most recent call last):
-    	      ...
-    TypeError: text must be a string
+    TypeError: size must be an integer
 
-Passing a number as a text
+::
 
-    >>> text_indentation(10)
+    >>> print_square(5.5)
     Traceback (most recent call last):
-    	      ...
-    TypeError: text must be a string
+    TypeError: size must be an integer
 
-Printing a text with special characters
+::
 
-    >>> text_indentation("Betty: Holberton? Python is. cool   ")
-    Betty:
-    <BLANKLINE>
-    Holberton?
-    <BLANKLINE>
-    Python is.
-    <BLANKLINE>
-    cool
+    >>> print_square(None)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
 
-Printing a char number
+If ``size`` is less than zero, a ValueError is raised.
 
-    >>> text_indentation('2')
-    2
+::
 
-Passing an empty string
+    >>> print_square(-7)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
 
-    >>> text_indentation('    ')
+Note that type-checking occurs before value-checking.
 
-Passing a new line as a text
+::
 
-    >>> text_indentation('\n')
-    <BLANKLINE>
+    >>> print_square(-7.5)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
 
-Passing a special character and some special characters
+At least one argument must be provided.
 
-    >>> text_indentation('\n.\n?\n:')
-    <BLANKLINE>
-    .
-    <BLANKLINE>
-    <BLANKLINE>
-    ?
-    <BLANKLINE>
-    <BLANKLINE>
-    :
-    <BLANKLINE>
+::
 
-Passing a text with spaces and one new line
+    >>> print_square()
+    Traceback (most recent call last):
+    TypeError: print_square() missing 1 required positional argument: 'size'
 
-    >>> text_indentation("   \n")
-    <BLANKLINE>
-
-Passing a text with spaces and one new line 2
-
-   >>> text_indentation("   \n   ")
-   <BLANKLINE>
-
-Passing a text with spaces and one new line 3
-
-   >>> text_indentation("\n   ")
-   <BLANKLINE>
