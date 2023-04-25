@@ -1,53 +1,29 @@
 #!/usr/bin/python3
 
-"""
-This module is made up of a function that prints a text with 2 new lines after each of these characters: ". ? and :"
+"""Defines a text-indentation function."""
 
-"""
 
 def text_indentation(text):
-    """ Function that prints 2 new lines after the characters: ". ? and :"
-
+    """Print text with two new lines after each '.', '?', and ':'.
     Args:
-        text: input string
-
-    Returns:
-        No return
-
+        text (string): The text to print.
     Raises:
-        TypeError: If text is not a string
-
+        TypeError: If text is not a string.
     """
-    # Check if text is a string
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    # Split the text into sentences and print them with 2 new lines in between
-    sentences = text.split(".")
-    for i in range(len(sentences)):
-        sentences[i] = sentences[i].strip()
-        if sentences[i]:
-            print(sentences[i] + ".")
-            if i < len(sentences) - 1:
-                print("\n")
+    c = 0
+    while c < len(text) and text[c] == ' ':
+        c += 1
 
-    sentences = [sentence for sentence in sentences if sentence]
-    questions = []
-    for sentence in sentences:
-        questions += sentence.split("?")
-    for i in range(len(questions)):
-        questions[i] = questions[i].strip()
-        if questions[i]:
-            print(questions[i] + "?")
-            if i < len(questions) - 1:
+    while c < len(text):
+        print(text[c], end="")
+        if text[c] == "\n" or text[c] in ".?:":
+            if text[c] in ".?:":
                 print("\n")
-
-    questions = [question for question in questions if question]
-    for sentence in questions:
-        parts = sentence.split(":")
-        for i in range(len(parts)):
-            parts[i] = parts[i].strip()
-            if parts[i]:
-                print(parts[i] + ":")
-                if i < len(parts) - 1:
-                    print("\n")
+            c += 1
+            while c < len(text) and text[c] == ' ':
+                c += 1
+            continue
+        c += 1
