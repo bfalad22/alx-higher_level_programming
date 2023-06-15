@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-
-"""Define say my name function"""
+"""Defin say my name funcrion"""
 
 
 def say_my_name(first_name, last_name=""):
-    """A function that display first-name and last_name.
+    """A function that display first-name and last_nname.
 
     Raise:
     TypeError: if first_name and last_name is not a str
