@@ -1,22 +1,23 @@
 #!/usr/bin/python3
-"""Lists 10 commits from the most recent to the oldest
-of the repository "rails" by the user rails
-"""
-
-import sys
+"""initialize"""
 import requests
+from sys import argv
 
-if __name__ == "__main__":
-    repo_name = sys.argv[1]
-    owner = sys.argv[2]
-    url = 'https://api.github.com/repos/{}/{}/commits'.format(owner, repo_name)
 
-    request = requests.get(url)
-    commits = request.json()
+def get_commits():
+    """display commits and author"""
+    url = 'https://api.github.com/repos/{}/{}/commits'.format(argv[2], argv[1])
+    req = requests.get(url)
+    json = req.json()
+
     try:
-        for i in range(10):
-            print('{}: {}'.format(
-                commits[i].get('sha'),
-                commits[i].get('commit').get('author').get('name')))
+        for i in range(0, 10):
+            sha = json[i].get('sha')
+            author = json[i].get('commit').get('author').get('name')
+            print('{}: {}'.format(sha, author))
     except IndexError:
         pass
+
+
+if __name__ == '__main__':
+    get_commits()
